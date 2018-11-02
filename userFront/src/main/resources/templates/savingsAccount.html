@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common::header"/>
+<body>
+<head th:replace="common::navbar"/>
+
+<div class="container center">
+    <div class="row">
+        <div class="col-lg-12">
+            <!--<h1 class="page-header">Dashboard</h1>-->
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-xl-6 col-sm-6">
+        </div>
+        <div class="col-xl-6 col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <h2>Savings Balance: </h2>
+                        </div>
+                        <div class="col-6 text-right">
+                            <h1><i class="fa fa-usd" aria-hidden="true"></i> <span th:text="${savingsAccount.accountBalance}">...</span></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="float-right"><i class="fa fa-angle-double-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- /.row -->
+
+    <div class="table-responsive center">
+        <table id="savingsTable" class="table table-bordered table-hover table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>Post Date</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Amount</th>
+                <th>Available Balance</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-th-each="savingsTransaction : ${savingsTransactionList}">
+                <td data-th-text="${savingsTransaction.date}">...</td>
+                <td data-th-text="${savingsTransaction.description}">...</td>
+                <td data-th-text="${savingsTransaction.type}">...</td>
+                <td data-th-text="${savingsTransaction.status}">...</td>
+                <td data-th-text="${savingsTransaction.amount}">...</td>
+                <td data-th-text="${savingsTransaction.availableBalance}">...</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div th:replace="common::scripts"></div>
+<script>
+    $(document).ready( function () {
+        $('#savingsTable').DataTable();
+    } );
+</script>
+</body>
+</html>

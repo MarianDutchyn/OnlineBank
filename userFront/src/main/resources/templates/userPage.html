@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common::header"/>
+<body>
+<head th:replace="common::navbar"/>
+<div class="container main">
+    <div class="row">
+        <div class="col-lg-12">
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row center">
+        <div class="col-xl-6 col-md-6">
+            <div class="card bg-light">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <!--<i class="fa fa-comments fa-5x"></i>-->
+                            <h2>Primary Balance: </h2>
+                        </div>
+                        <div class="col-6 text-right">
+                            <h1><i class="fa fa-usd" aria-hidden="true"></i> <span th:text="${primaryAccount.accountBalance}">...</span></h1>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{/account/primaryAccount}">
+                    <div class="card-footer">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right"><i class="fa fa-angle-double-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+            <br>
+            <div class="card bg-light">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <!--<i class="fa fa-comments fa-5x"></i>-->
+                            <h2>Savings Balance: </h2>
+                        </div>
+                        <div class="col-6 text-right">
+                            <h1><i class="fa fa-usd" aria-hidden="true"></i> <span th:text="${savingsAccount.accountBalance}">...</span></h1>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{/account/savingsAccount}">
+                    <div class="card-footer">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right"><i class="fa fa-angle-double-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-3">
+                            <i class="fa fa-credit-card fa-5x"></i>
+                        </div>
+                        <div class="col-9 text-right">
+                            <div>Deposit</div>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{/account/deposit}">
+                    <div class="card-footer">
+                        <span class="float-left">Go to Deposit</span>
+                        <span class="float-right"><i class="fa fa-angle-double-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-3">
+                            <i class="fa fa-dollar fa-5x"></i>
+                        </div>
+                        <div class="col-9 text-right">
+                            <div>Withdraw</div>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{/account/withdraw}">
+                    <div class="card-footer">
+                        <span class="float-left">Go to Withdrawal</span>
+                        <span class="float-right"><i class="fa fa-angle-double-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div th:replace="common::scripts"></div>
+</body>
+</html>
