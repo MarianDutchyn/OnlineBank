@@ -1,0 +1,11 @@
+
+
+<nav class="navbar navbar-dark bg-dark mb-5 justify-content-between">
+    <div class="navbar-expand mr-auto">
+      <div class="navbar-nav">
+          <a class="navbar-brand" routerLink="/login" routerLinkActive="active">Admin Portal</a>
+        <a class="nav-item nav-link" [hidden]='!loggedIn' routerLink="/userAccount" routerLinkActive="active">Users</a>
+      </div>
+    </div>
+    <a class="nav-item nav-link" style="cursor: pointer; color: red;" [hidden]='!loggedIn' (click)= "logout()">Logout</a>
+  </nav>

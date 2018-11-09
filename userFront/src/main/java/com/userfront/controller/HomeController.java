@@ -26,7 +26,7 @@ public class HomeController {
         return "redirect:/index";
     }
 
-    @GetMapping("/index")
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(){
         return "index";
     }
@@ -56,7 +56,7 @@ public class HomeController {
             userRoles.add(new UserRole(user, role));
             userService.createUser(user, userRoles);
         }
-        return "redirect:/";
+        return "redirect:/index";
     }
 
     @RequestMapping(value = "/userPage", method = RequestMethod.GET)

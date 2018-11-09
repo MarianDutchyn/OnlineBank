@@ -3,17 +3,23 @@
 <head th:replace="common::header"/>
 <body>
 <head th:replace="common::navbar"/>
-<div class="container center">
-    <div class="row">
-        <div class="col-xl-12">
-            <!--<h1 class="page-header">Dashboard</h1>-->
+<div class="container">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8">
+                            <h2>Primary Account: </h2>
+                        </div>
+                        <div class="col-4 text-right">
+                            <h2><i class="far fa-user" style="font-size: 24px;"></i> <span th:text="${user.username}">...</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- /.row -->
-    <div class="row">
-        <div class="col-xl-6 col-sm-6">
-        </div>
-        <div class="col-xl-6 col-sm-6">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     <div class="row">
@@ -21,20 +27,33 @@
                             <h2>Primary Balance: </h2>
                         </div>
                         <div class="col-6 text-right">
-                            <h1><i class="fa fa-usd" aria-hidden="true"></i> <span
-                                    th:text="${primaryAccount.accountBalance}">...</span></h1>
+                            <h2><i class="fas fa-dollar-sign" aria-hidden="true"></i> <span
+                                    th:text="${primaryAccount.accountBalance}">...</span></h2>
                         </div>
                     </div>
-                </div>
-                <div class="card-footer">
-                    <span class="float-right"><i class="fa fa-angle-double-right"></i></span>
-                    <div class="clearfix"></div>
                 </div>
             </div>
 
         </div>
     </div>
-
+    <div class="row" style="margin-top: 25px;">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-9">
+                            <h2>Primary Transaction List: </h2>
+                        </div>
+                        <div class="col-3 text-right">
+                            <h2><i class="fas fa-angle-double-down" aria-hidden="true"></i></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
 
     <!-- /.row -->
 

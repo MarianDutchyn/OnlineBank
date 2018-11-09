@@ -36,6 +36,7 @@ public class AccountController {
 
         model.addAttribute("primaryAccount", primaryAccount);
         model.addAttribute("primaryTransactionList", primaryTransactionList);
+        model.addAttribute("user", user);
 
         return "primaryAccount";
     }
@@ -48,6 +49,7 @@ public class AccountController {
 
         model.addAttribute("savingsAccount", savingsAccount);
         model.addAttribute("savingsTransactionList", savingsTransactionList);
+        model.addAttribute("user", user);
 
         return "savingsAccount";
     }

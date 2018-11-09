@@ -4,8 +4,9 @@
 <body>
 <head th:replace="common::navbar"/>
 
-<div class="container main">
-    <div class="row">
+<div class="container">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-md-3"></div>
         <div class="col-md-6">
             <form th:action="@{/transfer/toSomeoneElse}" method="post">
                 <div class="form-group" >
@@ -39,10 +40,8 @@
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Transfer</button>
             </form>
-
-            <div class="col-md-6">
-            </div>
         </div>
+        <div class="col-md-3"></div>
     </div>
 </div>
 <div th:replace="common::scripts"></div>

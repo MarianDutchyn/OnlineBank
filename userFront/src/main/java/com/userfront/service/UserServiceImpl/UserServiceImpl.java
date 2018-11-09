@@ -11,9 +11,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService{
 
     @Autowired
@@ -34,7 +36,12 @@ public class UserServiceImpl implements UserService{
         return userRepository.save(user);
     }
 
-    @Transactional
+    @Override
+    public List<User> findAll() {
+        List<User> userList = userRepository.findAll();
+        return userList;
+    }
+
     public User createUser(User user, Set<UserRole> userRoles) {
         User localUser = userRepository.findByUsername(user.getUsername());
         if (localUser != null){
@@ -56,7 +63,20 @@ public class UserServiceImpl implements UserService{
         return localUser;
     }
 
-    @Transactional
+    @Override
+    public void enabledUser(String username) {
+        User user = findByUsername(username);
+        user.setEnabled(true);
+        userRepository.save(user);
+    }
+
+    @Override
+    public void disableUser(String username) {
+        User user = findByUsername(username);
+        user.setEnabled(false);
+        userRepository.save(user);
+    }
+
     @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);

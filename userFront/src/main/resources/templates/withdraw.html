@@ -4,8 +4,9 @@
 <body>
 <head th:replace="common::navbar"/>
 <div class="container center">
-    <div class="row">
-        <div class="col-sm-6">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
             <form th:action="@{/account/withdraw}" method="post">
                 <div class="form-group" >
                     <label for="accountType">1. Please select the account you would like to withdraw:</label>
@@ -29,10 +30,8 @@
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Withdraw</button>
             </form>
-
-            <div class="col-sm-6">
-            </div>
         </div>
+        <div class="col-md-3"></div>
     </div>
 </div>
 <div th:replace="common::scripts"></div>

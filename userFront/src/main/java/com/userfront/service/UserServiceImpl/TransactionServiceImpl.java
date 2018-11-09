@@ -107,7 +107,6 @@ public class TransactionServiceImpl implements TransactionService {
         return recipient;
     }
 
-    @Transactional
     @Override
     public void deleteRecipientByName(String recipientName) {
         recipientRepository.deleteByName(recipientName);
