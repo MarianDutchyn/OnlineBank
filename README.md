@@ -1,6 +1,6 @@
 # Online Bank
 
-The Online Bank application implemented with Java 8, Spring Boot 2, JavaScript, Angular 7, Bootstrap 4, PostgerSQL, JPA in which user
+The Online Bank application implemented with Java 8, Spring Boot 2, JavaScript, Angular 7, Bootstrap 4, Thymeleaf, PostgerSQL, JPA, Maven in which user
 can registrate profile, where he will have two bank accounts[Primary, Savings]. User will be able to put money on account which he wants, 
 withdraw money, send money between accounts, send money to another person.
 
