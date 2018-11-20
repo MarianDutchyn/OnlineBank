@@ -53,6 +53,9 @@ public class TransferController {
         List<Recipient> recipientList = transactionService.findRecipientList(principal);
         model.addAttribute("recipient", recipient);
         model.addAttribute("recipientList", recipientList);
+        for (Recipient res: recipientList) {
+            System.out.println(res);
+        }
         return "recipient";
     }
 

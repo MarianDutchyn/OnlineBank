@@ -16,7 +16,7 @@ import java.util.Date;
 @Service
 public class AccountServiceImpl implements AccountService {
 
-    private static int counter = 0;
+    private static int counter = 48657;
 
     @Autowired
     private PrimaryAccountRepo primaryAccountRepo;
@@ -39,7 +39,7 @@ public class AccountServiceImpl implements AccountService {
 
         primaryAccountRepo.save(primaryAccount);
 
-        return primaryAccountRepo.findByAccountNumber(primaryAccount.getAccountNumber());
+        return primaryAccount;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class AccountServiceImpl implements AccountService {
 
         savingsAccountRepo.save(savingsAccount);
 
-        return savingsAccountRepo.findByAccountNumber(savingsAccount.getAccountNumber());
+        return savingsAccount;
     }
 
     @Override
@@ -59,7 +59,8 @@ public class AccountServiceImpl implements AccountService {
 
         if (accountType.equalsIgnoreCase("Primary")){
             PrimaryAccount primaryAccount = user.getPrimaryAccount();
-            primaryAccount.setAccountBalance(new BigDecimal(amount));
+            BigDecimal currentBalance = primaryAccount.getAccountBalance();
+            primaryAccount.setAccountBalance(currentBalance.add(new BigDecimal(amount)));
             primaryAccountRepo.save(primaryAccount);
 
             Date date = new Date();
@@ -68,7 +69,8 @@ public class AccountServiceImpl implements AccountService {
         }
         else if(accountType.equalsIgnoreCase("Savings")){
             SavingsAccount savingsAccount = user.getSavingsAccount();
-            savingsAccount.setAccountBalance(new BigDecimal(amount));
+            BigDecimal currentBalance = savingsAccount.getAccountBalance();
+            savingsAccount.setAccountBalance(currentBalance.add(new BigDecimal(amount)));
             savingsAccountRepo.save(savingsAccount);
 
             Date date = new Date();

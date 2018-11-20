@@ -91,7 +91,7 @@ public class TransactionServiceImpl implements TransactionService {
     public List<Recipient> findRecipientList(Principal principal) {
         User user = userService.findByUsername(principal.getName());
         List<Recipient> recipientList = recipientRepository.findAll().stream()
-                .filter(recipient -> recipient.getName().equalsIgnoreCase(user.getUsername()))
+                .filter(recipient -> user.getUsername().equalsIgnoreCase(recipient.getUser().getUsername()))
                 .collect(Collectors.toList());
         return recipientList;
     }

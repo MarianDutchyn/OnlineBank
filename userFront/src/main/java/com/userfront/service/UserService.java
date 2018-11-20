@@ -8,7 +8,7 @@ import java.util.Set;
 
 public interface UserService {
 
-    User save(User user);
+    void save(User user);
     List<User> findAll();
     User findByUsername(String username);
     User findByEmail(String email);
